@@ -2,7 +2,7 @@
 
 # Back-End Task
 
-**Create a [node.js](https://nodejs.org) [web service](https://en.wikipedia.org/wiki/Web_service) for a blogging app with a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transferj) api that works with [JSON](https://www.json.org) data using [express](https://expressjs.com/) as a framework and [postgresql](https://www.postgresql.org/) as a database.**
+**Create a [node.js](https://nodejs.org) [web service](https://en.wikipedia.org/wiki/Web_service) for a blogging app with a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) api that works with [JSON](https://www.json.org) data using [express](https://expressjs.com/) as a framework and [postgresql](https://www.postgresql.org/) as a database.**
 
 Blogging can involve many things so, to keep this simple, the main focus is on **users** and **posts** created by **users**. The structures for these entities are irrelevant as long as they're usable and aren't hard to understand, in other words, you can define **users** and **posts** however you want but make sure that it won't be too hard to understand how each of their properties contribute to form a blogging app that respects the requirements enumerated below. The same goes for endpoints.
 
