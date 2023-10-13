@@ -1,6 +1,6 @@
 import type { RequestHandler } from 'express';
 
-import { NotFoundError } from '../errors';
+import { NotFoundError } from '~/errors';
 
 export function initNotFoundRequestHandler(): RequestHandler {
   return function notFoundRequestHandler(req, res, next) {

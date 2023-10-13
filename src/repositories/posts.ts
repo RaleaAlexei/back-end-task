@@ -1,6 +1,6 @@
 import { BelongsTo, Model } from 'sequelize';
 
-import type { SequelizeModels } from '../sequelize';
+import type { SequelizeModels } from '~/lib/sequelize';
 import type { User } from './types';
 
 export class Post extends Model {
@@ -12,6 +12,7 @@ export class Post extends Model {
   title!: string;
   content!: string;
   authorId!: number;
+  isHidden!: boolean;
   createdAt!: Date;
   updatedAt!: Date;
 

@@ -1,6 +1,6 @@
 import type { ErrorRequestHandler } from 'express';
 
-import { HttpError } from '../errors';
+import { HttpError } from '~/errors';
 
 export function initErrorRequestHandler(): ErrorRequestHandler {
   return function errorRequestHandler(error, req, res, next) {

@@ -1,22 +1,22 @@
 import { Sequelize, DataTypes } from 'sequelize';
 
-import { Post } from '../repositories/posts';
+import { Post } from '~/repositories/posts';
 
 export function setupPostsModel(modelName: string, sequelize: Sequelize): void {
   Post.init({
     id: {
       type: DataTypes.INTEGER,
+      primaryKey: true,
       allowNull: false,
+      autoIncrement: true,
     },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
     content: {
       type: DataTypes.TEXT,
       allowNull: false,
-      unique: true,
     },
     isHidden: {
       type: DataTypes.BOOLEAN,

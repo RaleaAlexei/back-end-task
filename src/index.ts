@@ -1,29 +1,23 @@
+import 'dotenv/config';
 import express from 'express';
-
-import { initSequelizeClient } from './sequelize';
-import { initUsersRouter } from './routers';
-import { initErrorRequestHandler, initNotFoundRequestHandler } from './middleware';
-
-const PORT = 8080;
+import { initSequelizeClient } from '~/lib/sequelize';
+import { initErrorRequestHandler, initNotFoundRequestHandler } from '~/middleware';
+import initV1Router from '~/routers/api/v1';
+const PORT = process.env.PORT || 3000;
 
 async function main(): Promise<void> {
   const app = express();
-
-  // TODO(roman): store these credentials in some external configs
-  // so that they don't end up in the git repo
   const sequelizeClient = await initSequelizeClient({
     dialect: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    username: 'postgres',
-    password: 'postgres',
-    database: 'bend-backend-task',
+    host: process.env.POSTGRESS_HOST,
+    port: parseInt(process.env.POSTGRESS_PORT ?? ''),
+    username: process.env.POSTGRESS_USERNAME,
+    password: process.env.POSTGRESS_PASSWORD,
+    database: process.env.POSTGRESS_DATABASE_NAME,
   });
 
   app.use(express.json());
-
-  app.use('/api/v1/users', initUsersRouter(sequelizeClient));
-
+  app.use('/', initV1Router(sequelizeClient));
   app.use('/', initNotFoundRequestHandler());
 
   app.use(initErrorRequestHandler());
